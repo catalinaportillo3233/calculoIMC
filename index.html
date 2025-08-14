@@ -5,18 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
   <style>
+    body{
+        background-image: url(file:///C:/Users/TM_sa/Downloads/One%20Direction.jfif);
+    }
     input{
-        background: #F00;
-    COLOR: WHITE;
-    PADDING: 19PX;
-    border-radius: 21px;
+           background: pink;
+    color: black;
+    padding: 10px;
+    }
+    button{
+            background: pink !important;
+    color: black;
+    padding: 10px;
     }
   </style>
 </head>
 <body>
     <input onchange="calcular_imc()" type="number" id="npeso">
     <input type="number" id="naltura" onchange="calcular_imc()">
-    <button onclick="calcular_imc()">calcular</button>
+    <button onclick="calcular_imc()">x</button>
     <h2 id="resultado">asdasdasd</h2>
 
     <script type="text/javascript">
@@ -32,13 +39,13 @@
                 resultado.innerText = "normal";
             }
             if (imc < 30) {
-                resultado.innerText = "sobrepeso";
+                resultado.innerText = "sobre peso";
             }
             if (imc < 35) {
                 resultado.innerText = "obesidad";
             }
             if (imc  < 40 ){
-                resultado.innerText = "obesidadextrema";
+                resultado.innerText = "obesidad extrema";
             }
         }
     </script>
