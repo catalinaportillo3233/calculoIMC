@@ -6,7 +6,15 @@
     <title>Document</title>
   <style>
     body{
-        background-image: url(file:///C:/Users/TM_sa/Downloads/One%20Direction.jfif);
+        background-image: url("./imgs/One_Direction.jfif");
+        background-size: cover;
+        backgroud-position: center;
+        backgroud-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
     }
     input{
            background: pink;
@@ -18,6 +26,9 @@
     color: black;
     padding: 10px;
     }
+    #resultado{
+        background-color: aliceblue;
+    }
   </style>
 </head>
 <body>
@@ -25,7 +36,7 @@
     <input type="number" id="naltura" onchange="calcular_imc()">
     <button onclick="calcular_imc()">x</button>
     <h2 id="resultado">asdasdasd</h2>
-
+<img id="fotito" src="" alt="" srcset="">
     <script type="text/javascript">
         function calcular_imc() {
 /*             var altura, imc, peso;*/
@@ -34,17 +45,19 @@
             imc = peso/(altura*altura);
             if (imc < 18.6) {   
                 resultado.innerText = "bajopeso";
+                fotito.src = "./imgs/flaco.png";
             }
-            if (imc < 25) {
+            if (imc >18.6 && imc < 25) {
                 resultado.innerText = "normal";
             }
-            if (imc < 30) {
+            if (imc >25 && imc < 30) {
                 resultado.innerText = "sobre peso";
+                fotito.src = "./imgs/obeso.png"
             }
-            if (imc < 35) {
+            if (imc > 30 && imc < 35) {
                 resultado.innerText = "obesidad";
             }
-            if (imc  < 40 ){
+            if (imc >35 && imc  < 40 ){
                 resultado.innerText = "obesidad extrema";
             }
         }
