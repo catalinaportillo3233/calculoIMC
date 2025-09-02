@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Kilómetros</title>
+  <style>
+    body {
+      background-color: #ffe4f0; /* fondo rosa suave */
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: #c2185b;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .contenedor {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(255, 100, 180, 0.3);
+      text-align: center;
+      width: 260px;
+    }
+
+    h2 {
+      color: #d63384;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ffb3d9;
+      border-radius: 10px;
+      margin: 10px 0;
+      width: calc(100% - 24px);
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #ff69b4; /* rosa más fuerte */
+      color: white;
+      padding: 10px 16px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 12px; /* puntas redondeadas */
+      cursor: pointer;
+      font-size: 15px;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #ff4da6;
+    }
+
+    .result {
+      margin-top: 12px;
+      font-size: 17px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Conversor de Kilómetros</h1>
+  <div class="contenedor">
+    <div class="container">
+      <h2>Millas ➝ Kilómetros</h2>
+      <input type="number" id="millas" placeholder="Millas" step="0.01">
+      <button class="btn" onclick="toKm()">Convertir</button>
+      <div id="resultadoKm" class="result"></div>
+    </div>
+
+    <div class="container">
+      <h2>Kilómetros ➝ Millas</h2>
+      <input type="number" id="kms" placeholder="Kilómetros" step="0.01">
+      <button class="btn" onclick="toMi()">Convertir</button>
+      <div id="resultadoMi" class="result"></div>
+    </div>
+  </div>
+
+  <script>
+    const factor = 1.60934;
+
+    function toKm(){
+      const v = parseFloat(document.getElementById('millas').value);
+      if(isNaN(v)){
+        document.getElementById('resultadoKm').innerText = "⚠️ Ingresa un número válido";
+        return;
+      }
+      document.getElementById('resultadoKm').innerText = `${v} millas = ${(v*factor).toFixed(3)} km`;
+    }
+
+    function toMi(){
+      const v = parseFloat(document.getElementById('kms').value);
+      if(isNaN(v)){
+        document.getElementById('resultadoMi').innerText = "⚠️ Ingresa un número válido";
+        return;
+      }
+      document.getElementById('resultadoMi').innerText = `${v} km = ${(v/factor).toFixed(3)} millas`;
+    }
+  </script>
+</body>
+</html>
+
